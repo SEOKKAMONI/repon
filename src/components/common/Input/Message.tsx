@@ -1,19 +1,20 @@
-import { color, font } from '@maru/theme';
-import styled from 'styled-components';
-import { ReactNode } from 'react';
+import color from "@/styles/color";
+import font from "@/styles/font";
+import styled from "styled-components";
+import { ReactNode } from "react";
 
 interface PropsType {
-    children: ReactNode;
+  children: ReactNode;
 }
 
 const Message = ({ children }: PropsType) => {
-    return <StyledMessage>{children}</StyledMessage>;
+  return <StyledMessage>{children}</StyledMessage>;
 };
 
 export default Message;
 
 const StyledMessage = styled.p`
-    ${font.p3};
-    color: ${color.gray500};
-    margin-top: 4px;
+  ${font.p3};
+  color: ${color.gray500};
+  margin-top: 4px;
 `;

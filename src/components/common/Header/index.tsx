@@ -1,13 +1,15 @@
 import color from "@/styles/color";
 import font from "@/styles/font";
+import { useRouter } from "next/navigation";
 import styled from "styled-components";
 import Logo from "../Logo";
 
 const Header = () => {
+  const router = useRouter();
   return (
     <StyledHeader>
       <Logo logoColor="#000000" />
-      <ShareButton>공유하기</ShareButton>
+      <ShareButton onClick={() => router.push("/create")}>공유하기</ShareButton>
     </StyledHeader>
   );
 };

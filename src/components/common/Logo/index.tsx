@@ -1,4 +1,5 @@
 import font from "@/styles/font";
+import { useRouter } from "next/navigation";
 import styled from "styled-components";
 
 interface PropsType {
@@ -6,7 +7,12 @@ interface PropsType {
 }
 
 const Logo = ({ logoColor }: PropsType) => {
-  return <StyledLogo style={{ color: logoColor }}>레펀</StyledLogo>;
+  const router = useRouter();
+  return (
+    <StyledLogo onClick={() => router.push("/")} style={{ color: logoColor }}>
+      레펀
+    </StyledLogo>
+  );
 };
 
 export default Logo;
@@ -16,4 +22,5 @@ const StyledLogo = styled.span`
   height: 100%;
   display: flex;
   align-items: center;
+  cursor: pointer;
 `;

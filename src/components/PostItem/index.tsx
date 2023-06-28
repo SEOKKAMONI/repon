@@ -7,15 +7,15 @@ const PostItem = () => {
   return (
     <>
       <StyledPostItem>
-        <Column gap="14px">
+        <Column gap="8px">
           <Title>모노레포 관련 레퍼런스 공유합니다</Title>
           <Content>
             모노레포와 멀티레포의 차이를 모르신다면 한번쯤은 읽어봐도
             좋을것같습니다모노레포와 멀티레포의 차이를 모르신다면 한번쯤은
             읽어봐도 좋을것같습니다
           </Content>
-          <Name>익명의 한 학생</Name>
         </Column>
+        <Name>익명의 한 학생</Name>
       </StyledPostItem>
       <Line />
     </>
@@ -48,11 +48,12 @@ const Title = styled.span`
 
 const Content = styled.span`
   ${font.p3}
-  color: ${color.gray850};
+  color: ${color.gray900};
   overflow: hidden;
   white-space: nowrap;
   text-overflow: ellipsis;
   word-break: break-all;
+  margin-bottom: 14px;
 `;
 
 const Name = styled.span`
