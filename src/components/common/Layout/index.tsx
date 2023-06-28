@@ -3,6 +3,7 @@
 import { ReactNode } from "react";
 import styled from "styled-components";
 import Header from "../Header";
+import color from "@/styles/color";
 
 interface PropsType {
   children: ReactNode;
@@ -24,6 +25,6 @@ const StyledLayout = styled.div`
   margin: auto;
   max-width: 540px;
   height: 100vh;
-  border: 1px solid black;
   overflow-y: auto;
+  border: 1px solid ${color.gray300};
 `;

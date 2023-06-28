@@ -6,13 +6,13 @@ interface PropsType {
 }
 
 const Logo = ({ logoColor }: PropsType) => {
-  return <StyledLogo style={{ color: logoColor }}>리뷰를 다 모으자</StyledLogo>;
+  return <StyledLogo style={{ color: logoColor }}>레펀</StyledLogo>;
 };
 
 export default Logo;
 
 const StyledLogo = styled.span`
-  ${font.H4}
+  ${font.btn2}
   height: 100%;
   display: flex;
   align-items: center;

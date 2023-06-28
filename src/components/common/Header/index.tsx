@@ -1,3 +1,5 @@
+import color from "@/styles/color";
+import font from "@/styles/font";
 import styled from "styled-components";
 import Logo from "../Logo";
 
@@ -5,6 +7,7 @@ const Header = () => {
   return (
     <StyledHeader>
       <Logo logoColor="#000000" />
+      <ShareButton>공유하기</ShareButton>
     </StyledHeader>
   );
 };
@@ -13,11 +16,22 @@ export default Header;
 
 const StyledHeader = styled.div`
   position: sticky;
+  top: 0;
+  left: 0;
   display: flex;
   align-items: center;
+  justify-content: space-between;
   padding: 0px 24px;
   width: 100%;
   height: 64px;
   background-color: #ffffff;
-  border-bottom: 1px solid #e2e2e2;
+  border-bottom: 1px solid ${color.gray50};
+`;
+
+const ShareButton = styled.button`
+  ${font.btn2}
+  color: ${color.maruDefault};
+  &:hover {
+    color: ${color.maruHoverd};
+  }
 `;
