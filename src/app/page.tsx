@@ -1,14 +1,18 @@
 "use client";
 
 import Layout from "@/components/common/Layout";
+import PostItem from "@/components/PostItem";
+import color from "@/styles/color";
 import styled from "styled-components";
 
 const HomeScreen = () => {
   return (
     <Layout>
       <StyledHomeScreen>
-        <Banner />
-        <PostList></PostList>
+        <PostList>
+          <PostItem />
+          <PostItem />
+        </PostList>
       </StyledHomeScreen>
     </Layout>
   );
@@ -21,15 +25,11 @@ const StyledHomeScreen = styled.div`
   flex-direction: column;
   width: 100%;
   height: 100%;
-`;
-
-const Banner = styled.img`
-  height: 150px;
-  width: 100%;
+  background-color: ${color.gray50};
 `;
 
 const PostList = styled.div`
   display: flex;
   flex-direction: column;
-  padding: 0px 24px;
+  padding: 16px 36px 36px;
 `;

@@ -26,5 +26,4 @@ const StyledLayout = styled.div`
   max-width: 540px;
   height: 100vh;
   overflow-y: auto;
-  border: 1px solid ${color.gray300};
 `;

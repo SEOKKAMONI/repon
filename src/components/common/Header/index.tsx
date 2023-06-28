@@ -21,11 +21,11 @@ const StyledHeader = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 0px 24px;
+  padding: 0px 36px;
   width: 100%;
   height: 64px;
   background-color: #ffffff;
-  border-bottom: 1px solid ${color.gray50};
+  border-bottom: 1px solid ${color.gray100};
 `;
 
 const ShareButton = styled.button`
