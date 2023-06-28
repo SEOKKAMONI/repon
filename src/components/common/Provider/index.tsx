@@ -1,3 +1,5 @@
+"use client";
+
 import GlobalStyle from "@/styles/global";
 import { ReactNode } from "react";
 

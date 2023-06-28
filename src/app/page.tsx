@@ -1,8 +1,9 @@
+import Layout from "@/components/common/Layout";
 import Image from "next/image";
 import styles from "./page.module.css";
 
 const Home = () => {
-  return <div>ㄴㅇ</div>;
+  return <Layout>asds</Layout>;
 };
 
 export default Home;
