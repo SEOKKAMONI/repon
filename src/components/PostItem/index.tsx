@@ -7,6 +7,7 @@ import { useRouter } from "next/navigation";
 
 const PostItem = (props: PostType) => {
   const router = useRouter();
+
   return (
     <>
       <StyledPostItem onClick={() => router.push(`/post/${props.id}`)}>

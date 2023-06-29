@@ -2,12 +2,12 @@ import { initializeApp } from "firebase/app";
 import { getFirestore } from "firebase/firestore";
 
 const firebaseConfig = {
-  apiKey: "AIzaSyD_3NaNllvBuAapaiuYTHHYH7903u6QeKU",
-  authDomain: "reple-9196a.firebaseapp.com",
-  projectId: "reple-9196a",
-  storageBucket: "reple-9196a.appspot.com",
-  messagingSenderId: "1001535885340",
-  appId: "1:1001535885340:web:1aa7ff4189b5618a9b8fd9",
+  apiKey: "AIzaSyDzG92WpYUT1UYZOE5DCOCC36p3_V0_IN4",
+  authDomain: "repletwo.firebaseapp.com",
+  projectId: "repletwo",
+  storageBucket: "repletwo.appspot.com",
+  messagingSenderId: "416904115530",
+  appId: "1:416904115530:web:439bb5e6e28e32f4a17db3",
 };
 
 const app = initializeApp(firebaseConfig);
