@@ -2,8 +2,8 @@ import Provider from "@/components/common/Provider";
 import { ReactNode } from "react";
 
 export const metadata = {
-  title: "shaview",
-  description: "shaview",
+  title: "레펀",
+  description: "레퍼런스를 공유하다, 레펀",
 };
 
 interface PropsType {

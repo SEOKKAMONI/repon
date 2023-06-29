@@ -13,10 +13,14 @@ import { useRouter } from "next/navigation";
 import { PostType } from "@/types";
 
 const createPost = async (postData: PostType) => {
+  let decodeLink = postData.link;
+  const { link, ...rest } = postData;
+  if (link) decodeLink = decodeURI(link); // Decode the link using decodeURI
+
   const postCollectionRef = collection(db, "post");
 
   try {
-    await addDoc(postCollectionRef, postData);
+    await addDoc(postCollectionRef, { ...rest, link: decodeLink });
   } catch (e) {
     console.log(e);
   }
