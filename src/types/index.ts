@@ -1,5 +1,4 @@
 export interface PostType {
-  id: string;
   comments: string[];
   content: string;
   link?: string;

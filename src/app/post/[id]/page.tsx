@@ -11,7 +11,6 @@ import { db } from "@/db";
 import { collection, getDoc, doc, updateDoc } from "firebase/firestore";
 import { ChangeEvent, useEffect, useState } from "react";
 import styled from "styled-components";
-import { isObjectBindingPattern } from "typescript";
 
 const updateComment = async (id: string, comments: string[]) => {
   const commentsRef = doc(db, "post", id);
@@ -33,7 +32,6 @@ const PostDetailScreen = () => {
 
       if (data) {
         const postDetail: PostType = {
-          id: querySnapshot.id,
           comments: data.comments,
           content: data.content,
           name: data.name,
@@ -139,7 +137,7 @@ const CommentInputBox = styled.div`
   position: sticky;
   bottom: 0;
   width: 100%;
-  height: 64px;
+  height: 84px;
   padding: 0px 36px;
   background-color: ${color.white};
 `;

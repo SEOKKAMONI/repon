@@ -29,7 +29,7 @@ const HomeScreen = () => {
       setReplePostData(postData);
     };
     getPost();
-  }, []);
+  }, [replePostData]);
 
   return (
     <Layout>
