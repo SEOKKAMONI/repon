@@ -101,6 +101,7 @@ const PostDetailContents = styled.div`
   display: flex;
   flex-direction: column;
   padding-bottom: 36px;
+  word-break: break-all;
 `;
 
 const Name = styled.span`
@@ -121,9 +122,14 @@ const Content = styled.p`
   margin-bottom: 14px;
 `;
 
-const Reference = styled.p`
+const Reference = styled.span`
   ${font.p3}
   color: ${color.maruDefault};
+  cursor: pointer;
+  &:hover {
+    text-decoration: underline;
+    text-decoration-color: ${color.maruDefault};
+  }
 `;
 
 const CommentList = styled.div`

@@ -23,7 +23,7 @@ const StyledComment = styled.div`
   gap: 8px;
   width: 100%;
   min-height: 80px;
-  border-bottom: 1px solid ${color.gray200};
+  border-bottom: 1px solid ${color.gray300};
   padding: 16px;
 `;
 
