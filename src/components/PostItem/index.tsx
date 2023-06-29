@@ -2,20 +2,19 @@ import color from "@/styles/color";
 import font from "@/styles/font";
 import Column from "../common/Flex/Column";
 import styled from "styled-components";
+import { PostType } from "@/types";
+import { useRouter } from "next/navigation";
 
-const PostItem = () => {
+const PostItem = (props: PostType) => {
+  const router = useRouter();
   return (
     <>
-      <StyledPostItem>
+      <StyledPostItem onClick={() => router.push(`/post/${props.id}`)}>
         <Column gap="8px">
-          <Title>모노레포 관련 레퍼런스 공유합니다</Title>
-          <Content>
-            모노레포와 멀티레포의 차이를 모르신다면 한번쯤은 읽어봐도
-            좋을것같습니다모노레포와 멀티레포의 차이를 모르신다면 한번쯤은
-            읽어봐도 좋을것같습니다
-          </Content>
+          <Title>{props.title}</Title>
+          <Content>{props.content}</Content>
         </Column>
-        <Name>익명의 한 학생</Name>
+        <Name>{props.name}</Name>
       </StyledPostItem>
       <Line />
     </>

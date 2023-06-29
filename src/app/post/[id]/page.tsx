@@ -5,24 +5,50 @@ import ButtonInput from "@/components/common/Input/ButtonInput";
 import Layout from "@/components/common/Layout";
 import color from "@/styles/color";
 import font from "@/styles/font";
+import { usePathname } from "next/navigation";
+import { PostType } from "@/types";
+import { db } from "@/db";
+import { collection, getDoc, doc } from "firebase/firestore";
+import { useEffect, useState } from "react";
 import styled from "styled-components";
 
 const PostDetailScreen = () => {
+  const [postDetailData, setPostDetailData] = useState<PostType>();
+  const pathName = usePathname();
+  const id = pathName.replace("/post/", "");
+
+  console.log(id);
+
+  const postCollectionRef = collection(db, "post");
+
+  useEffect(() => {
+    const getPostDetail = async () => {
+      const querySnapshot = await getDoc(doc(postCollectionRef, id));
+      const data = querySnapshot.data();
+
+      if (data) {
+        const postDetail: PostType = {
+          id: querySnapshot.id,
+          comments: data.comments,
+          content: data.content,
+          name: data.name,
+          title: data.title,
+          link: data.link,
+        };
+        setPostDetailData(postDetail);
+      }
+    };
+    getPostDetail();
+  }, []);
+
   return (
     <Layout>
       <StyledPostDetailScreen>
         <PostDetailContents>
-          <Name>익명의 한 학생</Name>
-          <Title>모노레포 관련 레퍼런스 공유합니다</Title>
-          <Content>
-            모노레포와 멀티레포의 차이를 모르신다면 한번쯤은 읽어봐도
-            좋을것같습니다모노레포와 멀티레포의 차이를 모르신다면 한번쯤은
-            읽어봐도 좋을것같습니다
-          </Content>
-          <Reference>
-            Ref:
-            https://velog.io/@april_5/CSS-ellipsis-%EB%A7%90%EC%A4%84%EC%9E%84-%EC%B2%98%EB%A6%AC%ED%95%98%EA%B8%B0
-          </Reference>
+          <Name>{postDetailData?.name}</Name>
+          <Title>{postDetailData?.title}</Title>
+          <Content>{postDetailData?.content}</Content>
+          <Reference>{postDetailData?.link}</Reference>
         </PostDetailContents>
         <CommentList>
           <Comment />
