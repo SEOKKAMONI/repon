@@ -2,11 +2,15 @@ import font from "@/styles/font";
 import color from "@/styles/color";
 import styled from "styled-components";
 
-const Comment = () => {
+interface PropsType {
+  content: string;
+}
+
+const Comment = ({ content }: PropsType) => {
   return (
     <StyledComment>
       <Name>익명의 한 학생</Name>
-      <Content>안녕안녕</Content>
+      <Content>{content}</Content>
     </StyledComment>
   );
 };

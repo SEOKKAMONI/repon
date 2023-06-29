@@ -8,16 +8,21 @@ import font from "@/styles/font";
 import { usePathname } from "next/navigation";
 import { PostType } from "@/types";
 import { db } from "@/db";
-import { collection, getDoc, doc } from "firebase/firestore";
-import { useEffect, useState } from "react";
+import { collection, getDoc, doc, updateDoc } from "firebase/firestore";
+import { ChangeEvent, useEffect, useState } from "react";
 import styled from "styled-components";
+import { isObjectBindingPattern } from "typescript";
+
+const updateComment = async (id: string, comments: string[]) => {
+  const commentsRef = doc(db, "post", id);
+  await updateDoc(commentsRef, { comments });
+};
 
 const PostDetailScreen = () => {
   const [postDetailData, setPostDetailData] = useState<PostType>();
+  const [postComment, setPostComment] = useState("");
   const pathName = usePathname();
   const id = pathName.replace("/post/", "");
-
-  console.log(id);
 
   const postCollectionRef = collection(db, "post");
 
@@ -41,6 +46,17 @@ const PostDetailScreen = () => {
     getPostDetail();
   }, []);
 
+  const sendComment = () => {
+    if (postComment.length === 0) {
+      alert("댓글이 비어있습니다 !");
+      return;
+    }
+    postDetailData?.comments.push(postComment);
+    if (postDetailData?.comments)
+      updateComment(String(id), postDetailData?.comments);
+    setPostComment("");
+  };
+
   return (
     <Layout>
       <StyledPostDetailScreen>
@@ -51,7 +67,9 @@ const PostDetailScreen = () => {
           <Reference>{postDetailData?.link}</Reference>
         </PostDetailContents>
         <CommentList>
-          <Comment />
+          {postDetailData?.comments?.map((item) => (
+            <Comment content={item} />
+          ))}
         </CommentList>
       </StyledPostDetailScreen>
       <CommentInputBox>
@@ -59,7 +77,11 @@ const PostDetailScreen = () => {
           width="100%"
           placeholder="댓글을 입력해주세요."
           buttonText="입력"
-          buttonClick={() => console.log("hi")}
+          value={postComment}
+          buttonClick={sendComment}
+          onChange={(e: ChangeEvent<HTMLInputElement>) =>
+            setPostComment(e.target.value)
+          }
         />
       </CommentInputBox>
     </Layout>
