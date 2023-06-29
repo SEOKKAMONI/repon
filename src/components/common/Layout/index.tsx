@@ -22,6 +22,7 @@ const Layout = ({ children, screenColor = "#FFFFFF" }: PropsType) => {
 export default Layout;
 
 const StyledLayout = styled.div`
+  position: relative;
   margin: auto;
   max-width: 540px;
   height: 100vh;
