@@ -62,7 +62,9 @@ const PostDetailScreen = () => {
           <Name>{postDetailData?.name}</Name>
           <Title>{postDetailData?.title}</Title>
           <Content>{postDetailData?.content}</Content>
-          <Reference>{postDetailData?.link}</Reference>
+          <Reference onClick={() => window.open(postDetailData?.link)}>
+            {postDetailData?.link}
+          </Reference>
         </PostDetailContents>
         <CommentList>
           {postDetailData?.comments?.map((item) => (
