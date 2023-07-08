@@ -2,7 +2,7 @@ import { initializeApp } from "firebase/app";
 import { getFirestore } from "firebase/firestore";
 
 const firebaseConfig = {
-  apiKey: "AIzaSyDzG92WpYUT1UYZOE5DCOCC36p3_V0_IN4",
+  apiKey: 미친건가.. apikey를 왜올렸지,
   authDomain: "repletwo.firebaseapp.com",
   projectId: "repletwo",
   storageBucket: "repletwo.appspot.com",
